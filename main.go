@@ -14,7 +14,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/cznic/lex"
+	"github.com/qiuyesuifeng/golex/Godeps/_workspace/src/github.com/cznic/lex"
 )
 
 const (

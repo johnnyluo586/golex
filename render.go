@@ -6,11 +6,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/cznic/lex"
-	"github.com/cznic/lexer"
 	"log"
 	"sort"
 	"strings"
+
+	"github.com/qiuyesuifeng/golex/Godeps/_workspace/src/github.com/cznic/lex"
+	"github.com/qiuyesuifeng/golex/Godeps/_workspace/src/github.com/cznic/lexer"
 )
 
 type renderGo struct {

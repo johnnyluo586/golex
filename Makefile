@@ -1,29 +1,18 @@
-.PHONY: all clean editor later nuke todo
+# build rules.
+GO=go
 
-grep=--include=*.go
+.PHONY: all build install clean
 
-all: editor
-	make todo
+all: build install
+
+build:
+	$(GO) build
+
+install:
+	$(GO) install ./...
 
 clean:
-	go clean
-	rm -f *~
+	$(GO) clean -i ./...
 
-editor:
-	go fmt
-	go test -i
-	go test
-	go install
-
-later:
-	@grep -n $(grep) LATER * || true
-	@grep -n $(grep) MAYBE * || true
-
-nuke: clean
-	go clean -i
-
-todo:
-	@grep -nr $(grep) ^[[:space:]]*_[[:space:]]*=[[:space:]][[:alpha:]][[:alnum:]]* * || true
-	@grep -nr $(grep) TODO * || true
-	@grep -nr $(grep) BUG * || true
-	@grep -nr $(grep) println * || true
+test: 
+	$(GO) test -cover ./...
